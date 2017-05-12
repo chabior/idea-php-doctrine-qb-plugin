@@ -1,0 +1,36 @@
+<idea-plugin>
+  <id>com.chabior.doctrine_qb</id>
+  <name>Doctrine QB</name>
+  <version>1.0</version>
+  <vendor email="p.chabierski+ideadoctrineqb@gmail.com" url="http://www.yourcompany.com">Chabior</vendor>
+
+  <description><![CDATA[
+      Port sql query string to doctrine query builder.
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="171.3780"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+
+  <depends>com.jetbrains.php</depends>
+  <depends>com.intellij.modules.platform</depends>
+
+
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="DoctrineQB.create" class="com.chabior.DoctrineQBCreate" text="DoctrineQB"
+            description="Create doctrine qb from sql query">
+      <add-to-group group-id="GenerateGroup" anchor="last"/>
+    </action>
+  </actions>
+
+</idea-plugin>
