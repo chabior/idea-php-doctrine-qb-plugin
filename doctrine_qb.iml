@@ -20,8 +20,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="php-openapi" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="php" level="project" />
     <orderEntry type="module-library">
       <library name="junit:junit:4.12" type="repository">
         <properties maven-id="junit:junit:4.12" />
@@ -33,5 +31,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="php" level="project" />
+    <orderEntry type="library" name="php-openapi" level="project" />
   </component>
 </module>

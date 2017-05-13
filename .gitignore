@@ -2,3 +2,6 @@
 /out/
 /.idea/
 /doctrine_qb.zip
+/.cache/
+/idea/
+/plugins/

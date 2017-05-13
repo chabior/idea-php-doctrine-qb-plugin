@@ -1,8 +1,28 @@
 <project name="Symfony2 Idea Plugin" default="test" basedir=".">
 
+    <property name="src" location="${basedir}/src"/>
     <property name="test.src" location="${basedir}/tests"/>
+    <property name="outputDir" location="${basedir}/out"/>
+    <property name="idea.build" location="${basedir}/idea/" />
+    <property name="plugins" location="${basedir}/plugins"/>
+
+    <path id="idea.classpath">
+        <fileset dir="${idea.build}/lib">
+            <include name="*.jar"/>
+        </fileset>
+        <fileset dir="${basedir}/lib">
+            <include name="*.jar"/>
+        </fileset>
+        <fileset dir="${plugins}">
+            <include name="*.jar"/>
+        </fileset>
+        <fileset dir="${plugins}/php/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
 
     <path id="classpath.test">
+        <pathelement location="${outputDir}"/>
         <fileset dir="${basedir}/src">
             <include name="*.jar" />
         </fileset>
@@ -11,13 +31,32 @@
         </fileset>
     </path>
 
-    <target name="test"  description="Run the tests">
+    <path id="classpath">
+        <pathelement location="${outputDir}"/>
+        <path refid="idea.classpath"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="${outputDir}" />
+    </target>
+
+    <target name="prepare" depends="clean">
+        <mkdir dir="${outputDir}" />
+    </target>
+
+    <target name="compile" depends="prepare">
+        <javac destdir="${outputDir}" classpathref="classpath">
+            <src path="${src}"/>
+            <src path="${test.src}"/>
+        </javac>
+    </target>
+
+    <target name="test" depends="compile"  description="Run the tests">
         <echo message="Running tests"/>
 
         <junit printsummary="yes"
-               haltonfailure="false"
-               failureProperty="failure_found"
-               fork="yes" forkmode="once" reloading="no" showoutput="yes">
+               haltonfailure="true"
+               fork="no" reloading="no" showoutput="yes">
             <classpath refid="classpath.test"/>
             <formatter type="plain" usefile="false"/>
             <batchtest>
