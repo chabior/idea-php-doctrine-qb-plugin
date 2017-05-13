@@ -1,10 +1,19 @@
 <project name="Symfony2 Idea Plugin" default="test" basedir=".">
 
-    <property file="build.properties" />
-
-    <!-- set global properties for this build -->
-    <property name="build.compiler" value="modern"/>
-
-    <property name="src" location="${basedir}/src"/>
     <property name="test.src" location="${basedir}/tests"/>
+
+    <target name="test"  description="Run the tests">
+        <echo message="Running tests"/>
+
+        <junit printsummary="yes"
+               haltonfailure="false"
+               failureProperty="failure_found"
+               fork="yes" forkmode="once" reloading="no" showoutput="yes">
+            <batchtest>
+                <fileset dir="${test.src}">
+                    <include name="**/*Test.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
 </project>
