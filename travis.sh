@@ -26,28 +26,18 @@ if [ ! -d ${travisCache} ]; then
     mkdir ${travisCache}
 fi
 
-echo "Check idea"
-if [ -d ./idea  ]; then
-  rm -rf idea
-  mkdir idea
-  echo "created idea dir"
-fi
-
 # Download main idea folder
 download "http://download.jetbrains.com/idea/ideaIU-${ideaVersion}.tar.gz"
 tar zxf ${travisCache}/ideaIU-${ideaVersion}.tar.gz -C .
 
 # Move the versioned IDEA folder to a known location
 ideaPath=$(find . -name 'idea-IU*' | head -n 1)
-echo "Idea Path:"
-echo $ideaPath
+rm -Rf ./idea
+mkdir idea
 mv ${ideaPath}/* ./idea
 
-if [ -d ./plugins ]; then
-  rm -rf plugins
-  mkdir plugins
-  echo "created plugin dir"
-fi
+rm -rf plugins
+mkdir plugins
 
 #php
 download "http://phpstorm.espend.de/files/proxy/phpstorm-2017.1-php.zip"
