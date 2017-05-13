@@ -1,3 +1,4 @@
+![alt tag](https://api.travis-ci.org/chabior/idea-php-doctrine-qb-plugin.svg?branch=master)
 # idea-php-doctrine-qb-plugin
 PhpStorm plugin to replace MySQL query to Doctrine QB.
 
