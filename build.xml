@@ -3,6 +3,9 @@
     <property name="test.src" location="${basedir}/tests"/>
 
     <path id="classpath.test">
+        <fileset dir="${basedir}/lib">
+            <include name="*.jar"/>
+        </fileset>
     </path>
 
     <target name="test"  description="Run the tests">
@@ -12,6 +15,7 @@
                haltonfailure="false"
                failureProperty="failure_found"
                fork="yes" forkmode="once" reloading="no" showoutput="yes">
+            <classpath refid="classpath.test"/>
             <batchtest>
                 <fileset dir="${test.src}">
                     <include name="**/*Test.java"/>
