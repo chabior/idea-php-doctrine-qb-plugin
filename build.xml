@@ -2,6 +2,9 @@
 
     <property name="test.src" location="${basedir}/tests"/>
 
+    <path id="classpath.test">
+    </path>
+
     <target name="test"  description="Run the tests">
         <echo message="Running tests"/>
 
