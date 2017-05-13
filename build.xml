@@ -22,5 +22,10 @@
                 </fileset>
             </batchtest>
         </junit>
+        <antcall target="check_test"/>
+    </target>
+
+    <target name="check_test" if="failure_found">
+        <fail message="Failures found"/>
     </target>
 </project>
