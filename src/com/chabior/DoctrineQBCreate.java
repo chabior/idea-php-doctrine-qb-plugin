@@ -33,7 +33,7 @@ public class DoctrineQBCreate extends AnAction {
         Method method = getMethod(editor, project);
 
         try {
-            String query = new QueryBuilder(txt).build();
+            String query = new QueryBuilder().build(txt);
 
             WriteCommandAction.Simple.runWriteCommandAction(project, () -> {
                 final Statement statement = PhpPsiElementFactory.createStatement(project, query);
