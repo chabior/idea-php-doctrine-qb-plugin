@@ -26,6 +26,7 @@ if [ ! -d ${travisCache} ]; then
     mkdir ${travisCache}
 fi
 
+echo "Check idea"
 if [ -d ./idea  ]; then
   rm -rf idea
   mkdir idea
@@ -38,6 +39,8 @@ tar zxf ${travisCache}/ideaIU-${ideaVersion}.tar.gz -C .
 
 # Move the versioned IDEA folder to a known location
 ideaPath=$(find . -name 'idea-IU*' | head -n 1)
+echo "Idea Path:"
+echo $ideaPath
 mv ${ideaPath}/* ./idea
 
 if [ -d ./plugins ]; then
