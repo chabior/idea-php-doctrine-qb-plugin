@@ -10,7 +10,16 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="com.github.jsqlparser:jsqlparser:1.0" level="project" />
+    <orderEntry type="module-library">
+      <library type="repository">
+        <properties maven-id="com.github.jsqlparser:jsqlparser:1.0" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/jsqlparser-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="php-openapi" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="php" level="project" />
     <orderEntry type="module-library">
