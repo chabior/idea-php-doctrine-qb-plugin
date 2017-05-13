@@ -1,0 +1,10 @@
+<project name="Symfony2 Idea Plugin" default="test" basedir=".">
+
+    <property file="build.properties" />
+
+    <!-- set global properties for this build -->
+    <property name="build.compiler" value="modern"/>
+
+    <property name="src" location="${basedir}/src"/>
+    <property name="test.src" location="${basedir}/tests"/>
+</project>
