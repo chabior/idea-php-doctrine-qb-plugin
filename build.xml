@@ -16,6 +16,7 @@
                failureProperty="failure_found"
                fork="yes" forkmode="once" reloading="no" showoutput="yes">
             <classpath refid="classpath.test"/>
+            <formatter type="brief" usefile="false"/>
             <batchtest>
                 <fileset dir="${test.src}">
                     <include name="**/*Test.java"/>
